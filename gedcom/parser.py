@@ -278,7 +278,7 @@ class Parser(object):
     # Methods for analyzing individuals and relationships between individuals
 
     def get_marriages(self, individual):
-        """Returns a list of marriages of an individual formatted as a tuple (`str` date, `str` place)
+        """Returns a list of marriages of an individual formatted as a tuple (`str` date, `str` place, `str` type, `str` status)
         :type individual: IndividualElement
         :rtype: tuple
         """
@@ -294,12 +294,18 @@ class Parser(object):
                 if family_data.get_tag() == gedcom.tags.GEDCOM_TAG_MARRIAGE:
                     date = ''
                     place = ''
+                    type = ''
+                    _status = ''
                     for marriage_data in family_data.get_child_elements():
                         if marriage_data.get_tag() == gedcom.tags.GEDCOM_TAG_DATE:
                             date = marriage_data.get_value()
                         if marriage_data.get_tag() == gedcom.tags.GEDCOM_TAG_PLACE:
                             place = marriage_data.get_value()
-                    marriages.append((date, place))
+                        if marriage_data.get_tag() == gedcom.tags.GEDCOM_TAG_TYPE:
+                            type = marriage_data.get_value()
+                        if marriage_data.get_tag() == gedcom.tags.GEDCOM_TAG__STAT:
+                            _status = marriage_data.get_value()
+                    marriages.append((date, place, type, _status))
         return marriages
 
     def get_marriage_years(self, individual):

@@ -181,3 +181,11 @@ GEDCOM_TAG_WIFE = "WIFE"
 """Value: `WIFE`
 
 An individual in the role as a mother and/or married woman."""
+
+# A further qualification to the meaning of the associated superior tag. The value does not have any computer
+# processing reliability. It is more in the form of a short one or two word note that should be displayed any
+# time the associated data is displayed.
+GEDCOM_TAG_TYPE = "TYPE"
+
+# User defined tag for indicating status of object
+GEDCOM_TAG__STAT = "_STAT"
