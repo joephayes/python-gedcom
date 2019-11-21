@@ -187,5 +187,5 @@ An individual in the role as a mother and/or married woman."""
 # time the associated data is displayed.
 GEDCOM_TAG_TYPE = "TYPE"
 
-# User defined tag for indicating status of object
+# User defined tag for indicating the status of an object
 GEDCOM_TAG__STAT = "_STAT"
